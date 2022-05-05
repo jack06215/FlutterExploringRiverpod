@@ -78,7 +78,7 @@ class DataTypePage extends ConsumerWidget {
                   height: mq.height * 0.04,
                 ),
                 Text(
-                  "Hope You'll Understand This! \nKeep Learning and Stay Safe",
+                  "Stay Calm and \nKeep Flutter-ing",
                   style: Theme.of(context)
                       .textTheme
                       .caption!
