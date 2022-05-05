@@ -2,8 +2,8 @@ import 'package:flutter_riverpod_practices/basic_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DataTypePage extends ConsumerWidget {
-  const DataTypePage({Key? key}) : super(key: key);
+class BasicTypePage extends ConsumerWidget {
+  const BasicTypePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CounterRiverpod extends ChangeNotifier {
+class Counter extends ChangeNotifier {
   int _value = 0;
 
   int get value => _value;
@@ -17,6 +17,6 @@ class CounterRiverpod extends ChangeNotifier {
   }
 }
 
-final appCounterRiverpod = ChangeNotifierProvider<CounterRiverpod>(
-  (ref) => CounterRiverpod(),
+final appCounterRiverpod = ChangeNotifierProvider<Counter>(
+  (ref) => Counter(),
 );
