@@ -5,19 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:flutter_riverpod_practices/basic_counter2.dart';
+import 'package:flutter_riverpod_practices/basic_counter_bad.dart';
 import 'package:flutter_riverpod_practices/basic_riverpod.dart';
 
-final appCounterProvider =
-    StateNotifierProvider<CounterNotifier, int>((ref) => CounterNotifier());
+final appCounterProvider = ChangeNotifierProvider<Counter>((ref) {
+  return Counter();
+});
 
-class BasicCounterPage2 extends HookConsumerWidget {
-  const BasicCounterPage2({Key? key}) : super(key: key);
+class BasicCounterPage extends HookConsumerWidget {
+  const BasicCounterPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    final applyCount = ref.watch(appCounterProvider.notifier);
-    final count = ref.watch(appCounterProvider);
+    final applyCount = ref.watch(appCounterProvider);
     final appName = ref.watch(appNameProvider);
     return SafeArea(
       child: Scaffold(
@@ -29,7 +29,7 @@ class BasicCounterPage2 extends HookConsumerWidget {
           children: [
             Center(
               child: Text(
-                "Value: $count",
+                "Value: ${applyCount.value.toString()}",
                 style: Theme.of(context)
                     .textTheme
                     .headline6!
@@ -67,7 +67,7 @@ class BasicCounterPage2 extends HookConsumerWidget {
     );
   }
 
-  Widget rowfloatingActionButton(CounterNotifier applyCount, Size mq) {
+  Widget rowfloatingActionButton(Counter applyCount, Size mq) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [

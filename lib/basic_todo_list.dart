@@ -4,10 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 // Project imports:
 import 'package:flutter_riverpod_practices/todo.dart';
 
-enum TodoListFilter { all, active, completed }
-/// Creates a [TodoListFilter] that perform todos based on status
-final todoListFilter = StateProvider((ref) => TodoListFilter.all);
-
 /// Creates a [TodoList] and initialise it with pre-defined values.
 ///
 /// We are using [StateNotifierProvider] here as a `List<Todo>` is a complex
@@ -19,6 +15,10 @@ final todoListProvider = StateNotifierProvider<TodoList, List<Todo>>((red) {
     Todo(id: '3', description: 'bonjour'),
   ]);
 });
+
+/// Creates a [TodoListFilter] that perform todos based on status
+enum TodoListFilter { all, active, completed }
+final todoListFilter = StateProvider((ref) => TodoListFilter.all);
 
 /// The number of uncompleted todos
 ///
