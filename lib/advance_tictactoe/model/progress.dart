@@ -1,5 +1,7 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/finished_state.dart';
 
 part 'progress.freezed.dart';

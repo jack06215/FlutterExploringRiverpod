@@ -1,8 +1,14 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_practices/pages/basic_counter1_page.dart';
+
+// Package imports:
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
 import 'package:flutter_riverpod_practices/pages/basic_counter2_page.dart';
 import 'package:flutter_riverpod_practices/pages/basic_riverpod_page.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// https://github.com/devkishor8007/Exploring-Riverpod/blob/Day-2/lib/main.dart
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));

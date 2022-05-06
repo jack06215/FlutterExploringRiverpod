@@ -1,5 +1,7 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/player_type.dart';
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/progress.dart';
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/tile.dart';

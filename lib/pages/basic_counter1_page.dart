@@ -1,7 +1,12 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
 import 'package:flutter_riverpod_practices/basic_counter1.dart';
 import 'package:flutter_riverpod_practices/basic_riverpod.dart';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final appCounterProvider = ChangeNotifierProvider<Counter>((ref) {
   return Counter();

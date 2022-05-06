@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/foundation.dart' show immutable;
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 

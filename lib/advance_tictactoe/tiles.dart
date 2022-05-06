@@ -1,11 +1,14 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_riverpod_practices/advance_tictactoe/circle_painter.dart';
-import 'package:flutter_riverpod_practices/advance_tictactoe/cross_painter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+// Project imports:
+import 'package:flutter_riverpod_practices/advance_tictactoe/circle_painter.dart';
 import 'package:flutter_riverpod_practices/advance_tictactoe/controller/game_state_notifier.dart';
+import 'package:flutter_riverpod_practices/advance_tictactoe/cross_painter.dart';
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/finished_state.dart';
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/game_state.dart';
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/player_type.dart';
