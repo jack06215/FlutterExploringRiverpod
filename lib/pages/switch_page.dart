@@ -7,12 +7,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 // Project imports:
 import 'package:flutter_riverpod_practices/switch_riverpod.dart';
 
-final singleswitchRiverpod = StateNotifierProvider<SingleSwitchNotifier, bool>(
-    (ref) => SingleSwitchNotifier());
+final switchRiverpod = StateNotifierProvider<SwitchWidgetNotifier, bool>(
+    (ref) => SwitchWidgetNotifier());
 
-final multipleswitchRiverpod =
-    StateNotifierProvider<MultipleSwitchNotifier, List<bool>>(
-        (ref) => MultipleSwitchNotifier());
+final multipleSwitchRiverpod = ChangeNotifierProvider<MultipleSwitchWidget>(
+  (ref) => MultipleSwitchWidget(),
+);
 
 class SwitchHomePage extends HookConsumerWidget {
   const SwitchHomePage({Key? key}) : super(key: key);
@@ -20,16 +20,16 @@ class SwitchHomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    final switchImplement = ref.watch(singleswitchRiverpod.notifier);
-    final multipleswitchImpement = ref.watch(multipleswitchRiverpod.notifier);
+    var switchImplement = ref.watch(switchRiverpod);
+    final multipleswitchImplement = ref.watch(multipleSwitchRiverpod);
 
-    final singleswitch = ref.watch(singleSiwtchNameProvider);
-    final multipleswitch = ref.watch(multipleSwitchNameProvider);
-    final appName = ref.watch(appNameProvider);
-
+    final singleswitch = ref.watch(singleswitchName);
+    final multipleswitch = ref.watch(multipleswitchName);
+    final hopeRiverpodText = ref.watch(hopeRiverpod);
+    final appname = ref.watch(appNameRiverpod);
     return SafeArea(
       child: Scaffold(
-        appBar: appBar(context, appName),
+        appBar: appBar(context, appname),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -55,7 +55,7 @@ class SwitchHomePage extends HookConsumerWidget {
                           ),
                         ),
                       ),
-                      singleSwitchListTile(switchImplement, context),
+                      singleSwitchListTile(ref, context),
                     ],
                   ),
                 ),
@@ -83,25 +83,25 @@ class SwitchHomePage extends HookConsumerWidget {
                       multipleSwitchListTile(
                         context,
                         textSwitch: 'First Switch',
-                        value: multipleswitchImpement.value1,
+                        value: multipleswitchImplement.value1,
                         onChanged: (vax) {
-                          multipleswitchImpement.onChangeMultipleOne(vax);
+                          multipleswitchImplement.onChangedMultipleOne(vax);
                         },
                       ),
                       multipleSwitchListTile(
                         context,
                         textSwitch: 'Second Switch',
-                        value: multipleswitchImpement.value2,
+                        value: multipleswitchImplement.value2,
                         onChanged: (vax) {
-                          multipleswitchImpement.onChangeMultipleTwo(vax);
+                          multipleswitchImplement.onChangedMultipleTwo(vax);
                         },
                       ),
                       multipleSwitchListTile(
                         context,
                         textSwitch: 'Third Switch',
-                        value: multipleswitchImpement.value3,
+                        value: multipleswitchImplement.value3,
                         onChanged: (vax) {
-                          multipleswitchImpement.onChangeMultipleThree(vax);
+                          multipleswitchImplement.onChangedMultipleThree(vax);
                         },
                       ),
                     ],
@@ -109,6 +109,13 @@ class SwitchHomePage extends HookConsumerWidget {
                 ),
                 SizedBox(
                   height: mq.height * 0.04,
+                ),
+                Text(
+                  hopeRiverpodText,
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption!
+                      .copyWith(color: Colors.white),
                 ),
               ],
             ),
@@ -118,22 +125,23 @@ class SwitchHomePage extends HookConsumerWidget {
     );
   }
 
-  Widget singleSwitchListTile(
-      SingleSwitchNotifier switchImplement, BuildContext context) {
+  Widget singleSwitchListTile(WidgetRef ref, BuildContext context) {
+    final value = ref.watch(switchRiverpod);
+    final switchImpl = ref.watch(switchRiverpod.notifier);
     return SwitchListTile(
         title: const Text(
           'Single Switch',
         ),
         activeColor: Colors.redAccent,
-        value: switchImplement.value,
-        onChanged: (change) {
-          switchImplement.onChange(change);
+        value: value,
+        onChanged: (newValue) {
+          switchImpl.onChanged(newValue);
         });
   }
 
   Widget multipleSwitchListTile(BuildContext context,
       {required bool value,
-      required void Function(bool) onChanged,
+      required Function(bool) onChanged,
       required String textSwitch}) {
     return SwitchListTile(
       title: Text(

@@ -1,40 +1,43 @@
-// Package imports:
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final appNameProvider = Provider<String>((ref) => "Exploring Riverpod");
-final singleSiwtchNameProvider =
-    Provider<String>((ref) => "Single Siwtch Provider");
-final multipleSwitchNameProvider =
-    Provider<String>((ref) => "Keep leaning Flutter\nHappy Coding");
+final appNameRiverpod = Provider<String>((ref) => "Exploring Riverpod");
+final singleswitchName = Provider<String>((ref) => "Single Switch Widget");
+final multipleswitchName = Provider<String>((ref) => "Multiple Switch Widget");
+final hopeRiverpod = Provider<String>(
+    (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
 
-class SingleSwitchNotifier extends StateNotifier<bool> {
-  SingleSwitchNotifier() : super(false);
+class SwitchWidgetNotifier extends StateNotifier<bool> {
+  SwitchWidgetNotifier() : super(false);
 
-  get value => state;
+  bool get value => state;
 
-  void onChange(bool changeval) {
+  void onChanged(bool changeval) {
     state = changeval;
   }
 }
 
-class MultipleSwitchNotifier extends StateNotifier<List<bool>> {
-  MultipleSwitchNotifier() : super([]) {
-    state = List.filled(3, false);
+class MultipleSwitchWidget extends ChangeNotifier {
+  bool _value1 = false;
+  bool _value2 = false;
+  bool _value3 = false;
+
+  bool get value1 => _value1;
+  bool get value2 => _value2;
+  bool get value3 => _value3;
+
+  void onChangedMultipleOne(changeval1) {
+    _value1 = changeval1;
+    notifyListeners();
   }
 
-  get value1 => state[0];
-  get value2 => state[1];
-  get value3 => state[2];
-
-  void onChangeMultipleOne(changeval) {
-    state[0] = changeval;
+  void onChangedMultipleTwo(changeval2) {
+    _value2 = changeval2;
+    notifyListeners();
   }
 
-  void onChangeMultipleTwo(changeval) {
-    state[1] = changeval;
-  }
-
-  void onChangeMultipleThree(changeval) {
-    state[2] = changeval;
+  void onChangedMultipleThree(changeval3) {
+    _value3 = changeval3;
+    notifyListeners();
   }
 }
