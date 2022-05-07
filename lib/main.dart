@@ -1,5 +1,8 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_practices/pages/counter.dart';
+import 'package:flutter_riverpod_practices/pages/switch_page.dart';
+
+// Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
@@ -14,13 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter_Riverpod_Practices',
       theme: ThemeData(
-        canvasColor: Colors.indigo.withBlue(2),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Colors.lightBlue.withBlue(3)),
-        primarySwatch: Colors.blue,
+        canvasColor: Colors.teal.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      home: const CounterPage(),
+      home: const SwitchHomePage(),
     );
   }
 }
