@@ -1,33 +1,36 @@
-import 'package:flutter/material.dart';
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:flutter_riverpod_practices/model/my_switch.dart';
 
-final appNameRiverpod = Provider<String>((ref) => "Exploring Riverpod");
-final singleswitchName = Provider<String>((ref) => "Single Switch Widget");
-final multipleswitchName = Provider<String>((ref) => "Multiple Switch Widget");
-final hopeRiverpod = Provider<String>(
+final appNameProvider = Provider<String>((ref) => "Exploring Riverpod");
+final singleSwitchNameProvider =
+    Provider<String>((ref) => "Single Switch Widget");
+final multipleSwitchNameProvider =
+    Provider<String>((ref) => "Multiple Switch Widget");
+final footerMessageProvider = Provider<String>(
     (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
 
-class SwitchWidgetNotifier extends StateNotifier<bool> {
-  SwitchWidgetNotifier() : super(false);
+class SingleSwitchWidgetNotifier extends StateNotifier<bool> {
+  SingleSwitchWidgetNotifier() : super(false);
 
   void onChanged(bool changeval) {
     state = changeval;
   }
 }
 
-@immutable
-class MySwitch {
-  const MySwitch({
-    required this.id,
-    this.value = false,
-  });
-  final int id;
-  final bool value;
-}
-
-class MultipleSwitchWidget extends StateNotifier<List<MySwitch>> {
-  MultipleSwitchWidget([List<MySwitch>? initialMySwitch])
+// @immutable
+// class MySwitch {
+//   const MySwitch({
+//     required this.id,
+//     this.value = false,
+//   });
+//   final int id;
+//   final bool value;
+// }
+class MultipleSwitchWidgetNotifier extends StateNotifier<List<MySwitch>> {
+  MultipleSwitchWidgetNotifier([List<MySwitch>? initialMySwitch])
       : super(initialMySwitch ?? []);
 
   void toggle(int id) {
@@ -37,28 +40,3 @@ class MultipleSwitchWidget extends StateNotifier<List<MySwitch>> {
     ];
   }
 }
-
-// class MultipleSwitchWidget extends ChangeNotifier {
-//   bool _value1 = false;
-//   bool _value2 = false;
-//   bool _value3 = false;
-
-//   bool get value1 => _value1;
-//   bool get value2 => _value2;
-//   bool get value3 => _value3;
-
-//   void onChangedMultipleOne(changeval1) {
-//     _value1 = changeval1;
-//     notifyListeners();
-//   }
-
-//   void onChangedMultipleTwo(changeval2) {
-//     _value2 = changeval2;
-//     notifyListeners();
-//   }
-
-//   void onChangedMultipleThree(changeval3) {
-//     _value3 = changeval3;
-//     notifyListeners();
-//   }
-// }

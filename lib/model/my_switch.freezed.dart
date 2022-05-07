@@ -17,9 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$MySwitchTearOff {
   const _$MySwitchTearOff();
 
-  _MySwitch call(bool value) {
+  _MySwitch call({required int id, bool value = false}) {
     return _MySwitch(
-      value,
+      id: id,
+      value: value,
     );
   }
 }
@@ -29,6 +30,7 @@ const $MySwitch = _$MySwitchTearOff();
 
 /// @nodoc
 mixin _$MySwitch {
+  int get id => throw _privateConstructorUsedError;
   bool get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -40,7 +42,7 @@ mixin _$MySwitch {
 abstract class $MySwitchCopyWith<$Res> {
   factory $MySwitchCopyWith(MySwitch value, $Res Function(MySwitch) then) =
       _$MySwitchCopyWithImpl<$Res>;
-  $Res call({bool value});
+  $Res call({int id, bool value});
 }
 
 /// @nodoc
@@ -53,9 +55,14 @@ class _$MySwitchCopyWithImpl<$Res> implements $MySwitchCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? value = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -69,7 +76,7 @@ abstract class _$MySwitchCopyWith<$Res> implements $MySwitchCopyWith<$Res> {
   factory _$MySwitchCopyWith(_MySwitch value, $Res Function(_MySwitch) then) =
       __$MySwitchCopyWithImpl<$Res>;
   @override
-  $Res call({bool value});
+  $Res call({int id, bool value});
 }
 
 /// @nodoc
@@ -83,10 +90,15 @@ class __$MySwitchCopyWithImpl<$Res> extends _$MySwitchCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? value = freezed,
   }) {
     return _then(_MySwitch(
-      value == freezed
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -97,27 +109,34 @@ class __$MySwitchCopyWithImpl<$Res> extends _$MySwitchCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MySwitch implements _MySwitch {
-  _$_MySwitch(this.value);
+  _$_MySwitch({required this.id, this.value = false});
 
+  @override
+  final int id;
+  @JsonKey(defaultValue: false)
   @override
   final bool value;
 
   @override
   String toString() {
-    return 'MySwitch(value: $value)';
+    return 'MySwitch(id: $id, value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _MySwitch &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(value);
 
   @JsonKey(ignore: true)
   @override
@@ -126,8 +145,10 @@ class _$_MySwitch implements _MySwitch {
 }
 
 abstract class _MySwitch implements MySwitch {
-  factory _MySwitch(bool value) = _$_MySwitch;
+  factory _MySwitch({required int id, bool value}) = _$_MySwitch;
 
+  @override
+  int get id => throw _privateConstructorUsedError;
   @override
   bool get value => throw _privateConstructorUsedError;
   @override

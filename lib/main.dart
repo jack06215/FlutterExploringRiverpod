@@ -1,9 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_practices/pages/switch_page.dart';
 
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
+import 'package:flutter_riverpod_practices/pages/switch_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));

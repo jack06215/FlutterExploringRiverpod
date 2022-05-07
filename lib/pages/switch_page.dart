@@ -5,21 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
+import 'package:flutter_riverpod_practices/model/my_switch.dart';
 import 'package:flutter_riverpod_practices/switch_riverpod.dart';
 
-final switchRiverpod = StateNotifierProvider<SwitchWidgetNotifier, bool>(
-    (ref) => SwitchWidgetNotifier());
+final singleSwitchProvider =
+    StateNotifierProvider<SingleSwitchWidgetNotifier, bool>(
+        (ref) => SingleSwitchWidgetNotifier());
 
-// final multipleSwitchRiverpod = ChangeNotifierProvider<MultipleSwitchWidget>(
-//   (ref) => MultipleSwitchWidget(),
-// );
-
-final multipleSwitchRiverpod =
-    StateNotifierProvider<MultipleSwitchWidget, List<MySwitch>>(
-        (ref) => MultipleSwitchWidget([
-              const MySwitch(id: 1, value: false),
-              const MySwitch(id: 2, value: false),
-              const MySwitch(id: 3, value: false),
+final multipleSwitchProvider =
+    StateNotifierProvider<MultipleSwitchWidgetNotifier, List<MySwitch>>(
+        (ref) => MultipleSwitchWidgetNotifier([
+              MySwitch(id: 1, value: false),
+              MySwitch(id: 2, value: true),
+              MySwitch(id: 3, value: false),
             ]));
 
 class SwitchHomePage extends HookConsumerWidget {
@@ -28,16 +26,15 @@ class SwitchHomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    var switchImplement = ref.watch(switchRiverpod);
-    final multipleswitchImplement = ref.watch(multipleSwitchRiverpod);
+    final multipleSwitch = ref.watch(multipleSwitchProvider);
 
-    final singleswitch = ref.watch(singleswitchName);
-    final multipleswitch = ref.watch(multipleswitchName);
-    final hopeRiverpodText = ref.watch(hopeRiverpod);
-    final appname = ref.watch(appNameRiverpod);
+    final singleSwitchName = ref.watch(singleSwitchNameProvider);
+    final multipleSwitchName = ref.watch(multipleSwitchNameProvider);
+    final footerMessage = ref.watch(footerMessageProvider);
+    final appName = ref.watch(appNameProvider);
     return SafeArea(
       child: Scaffold(
-        appBar: appBar(context, appname),
+        appBar: appBar(context, appName),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -55,7 +52,7 @@ class SwitchHomePage extends HookConsumerWidget {
                           top: mq.height * 0.01,
                         ),
                         child: Text(
-                          singleswitch,
+                          singleSwitchName,
                           style: TextStyle(
                             fontSize:
                                 Theme.of(context).textTheme.headline5!.fontSize,
@@ -80,7 +77,7 @@ class SwitchHomePage extends HookConsumerWidget {
                           top: mq.height * 0.01,
                         ),
                         child: Text(
-                          multipleswitch,
+                          multipleSwitchName,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize:
@@ -88,30 +85,18 @@ class SwitchHomePage extends HookConsumerWidget {
                           ),
                         ),
                       ),
-                      multipleSwitchListTile(
-                        context,
-                        textSwitch: 'First Switch',
-                        value: multipleswitchImplement.value1,
-                        onChanged: (vax) {
-                          multipleswitchImplement.onChangedMultipleOne(vax);
-                        },
-                      ),
-                      multipleSwitchListTile(
-                        context,
-                        textSwitch: 'Second Switch',
-                        value: multipleswitchImplement.value2,
-                        onChanged: (vax) {
-                          multipleswitchImplement.onChangedMultipleTwo(vax);
-                        },
-                      ),
-                      multipleSwitchListTile(
-                        context,
-                        textSwitch: 'Third Switch',
-                        value: multipleswitchImplement.value3,
-                        onChanged: (vax) {
-                          multipleswitchImplement.onChangedMultipleThree(vax);
-                        },
-                      ),
+                      for (var i = 0; i < multipleSwitch.length; i++)
+                        SwitchListTile(
+                            title: Text(
+                              'Switche $i',
+                            ),
+                            activeColor: Colors.redAccent,
+                            value: multipleSwitch[i].value,
+                            onChanged: (newValue) {
+                              ref
+                                  .watch(multipleSwitchProvider.notifier)
+                                  .toggle(multipleSwitch[i].id);
+                            })
                     ],
                   ),
                 ),
@@ -119,7 +104,7 @@ class SwitchHomePage extends HookConsumerWidget {
                   height: mq.height * 0.04,
                 ),
                 Text(
-                  hopeRiverpodText,
+                  footerMessage,
                   style: Theme.of(context)
                       .textTheme
                       .caption!
@@ -134,31 +119,15 @@ class SwitchHomePage extends HookConsumerWidget {
   }
 
   Widget singleSwitchListTile(WidgetRef ref, BuildContext context) {
-    final value = ref.watch(switchRiverpod);
-    final switchImpl = ref.watch(switchRiverpod.notifier);
     return SwitchListTile(
         title: const Text(
           'Single Switch',
         ),
         activeColor: Colors.redAccent,
-        value: value,
+        value: ref.watch(singleSwitchProvider),
         onChanged: (newValue) {
-          switchImpl.onChanged(newValue);
+          ref.watch(singleSwitchProvider.notifier).onChanged(newValue);
         });
-  }
-
-  Widget multipleSwitchListTile(BuildContext context,
-      {required bool value,
-      required Function(bool) onChanged,
-      required String textSwitch}) {
-    return SwitchListTile(
-      title: Text(
-        textSwitch,
-      ),
-      activeColor: Colors.redAccent,
-      value: value,
-      onChanged: onChanged,
-    );
   }
 
   PreferredSizeWidget appBar(BuildContext context, String appname) {
