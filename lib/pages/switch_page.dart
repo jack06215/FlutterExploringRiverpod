@@ -17,7 +17,7 @@ final multipleSwitchProvider =
         (ref) => MultipleSwitchWidgetNotifier([
               MySwitch(id: 1, value: false),
               MySwitch(id: 2, value: true),
-              MySwitch(id: 3, value: false),
+              MySwitch(id: 3, value: true),
             ]));
 
 class SwitchHomePage extends HookConsumerWidget {
@@ -88,7 +88,7 @@ class SwitchHomePage extends HookConsumerWidget {
                       for (var i = 0; i < multipleSwitch.length; i++)
                         SwitchListTile(
                             title: Text(
-                              'Switche $i',
+                              'Switche ${i + 1}',
                             ),
                             activeColor: Colors.redAccent,
                             value: multipleSwitch[i].value,
