@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
+import 'package:flutter_riverpod_practices/advance_tictactoe/tiles.dart';
 import 'package:flutter_riverpod_practices/pages/basic_counter_page.dart';
 import 'package:flutter_riverpod_practices/pages/basic_riverpod_page.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const BasicCounterPage(),
+      home: const Tiles(),
     );
   }
 }

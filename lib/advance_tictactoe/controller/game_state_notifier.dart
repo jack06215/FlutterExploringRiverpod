@@ -9,26 +9,17 @@ import 'package:flutter_riverpod_practices/advance_tictactoe/model/progress.dart
 import 'package:flutter_riverpod_practices/advance_tictactoe/model/tile.dart';
 
 class GameStateNotifier extends StateNotifier<GameState> {
-  /// The initial state when a new game started
   GameStateNotifier(GameState state) : super(state) {
-    // Fill initial tiles state
     final Map<Tile, PlayerType> tiles = <Tile, PlayerType>{};
     for (int x = 0; x < 3; x++) {
       for (int y = 0; y < 3; y++) {
         tiles.putIfAbsent(Tile(x, y), () => PlayerType.empty);
       }
     }
-    // Initial state of notifier
     this.state = state.copyWith(tiles: tiles, progress: Progress.inProgress());
   }
 
-  /// Whenever a player place the mark on tile
   void toggle(Tile tile) {
-    // 1. Change tile state to either cross or circle
-    // 2. Update the state all together with copyWith
-    //    - next player
-    //    - whether there is a winner or not
-    //    - update tiles
     state.tiles[tile] = state.currentPlayer;
     state = state.copyWith(
       currentPlayer: _nextPlayer(),
@@ -37,7 +28,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
     );
   }
 
-  /// Reset tiles
   void reset() {
     state = state.copyWith(
       currentPlayer: PlayerType.circle,
@@ -46,7 +36,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
     );
   }
 
-  /// Get the current game state
   Progress _determineProgress() {
     final finished = isFinished();
     if (finished == null) {
@@ -55,7 +44,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
     return Progress.finished(finished);
   }
 
-  /// Set next player
   PlayerType _nextPlayer() {
     if (state.currentPlayer == PlayerType.circle) {
       return PlayerType.cross;
@@ -63,7 +51,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
     return PlayerType.circle;
   }
 
-  // When the game is finshed, update the finshed state
   FinishedState? isFinished() {
     if (_hasThreeInARow(PlayerType.circle)) {
       return FinishedState.circle;
@@ -80,7 +67,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
     return null;
   }
 
-  // Return true if there is a matched, false otherwise
   bool _hasThreeInARow(PlayerType player) {
     final tiles = state.tiles.entries
         .where((element) => element.value == player)
