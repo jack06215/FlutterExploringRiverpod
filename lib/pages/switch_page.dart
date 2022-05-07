@@ -10,9 +10,17 @@ import 'package:flutter_riverpod_practices/switch_riverpod.dart';
 final switchRiverpod = StateNotifierProvider<SwitchWidgetNotifier, bool>(
     (ref) => SwitchWidgetNotifier());
 
-final multipleSwitchRiverpod = ChangeNotifierProvider<MultipleSwitchWidget>(
-  (ref) => MultipleSwitchWidget(),
-);
+// final multipleSwitchRiverpod = ChangeNotifierProvider<MultipleSwitchWidget>(
+//   (ref) => MultipleSwitchWidget(),
+// );
+
+final multipleSwitchRiverpod =
+    StateNotifierProvider<MultipleSwitchWidget, List<MySwitch>>(
+        (ref) => MultipleSwitchWidget([
+              const MySwitch(id: 1, value: false),
+              const MySwitch(id: 2, value: false),
+              const MySwitch(id: 3, value: false),
+            ]));
 
 class SwitchHomePage extends HookConsumerWidget {
   const SwitchHomePage({Key? key}) : super(key: key);
