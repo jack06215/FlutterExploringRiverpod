@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Project imports:
-import 'package:flutter_riverpod_practices/pages/switch_page.dart';
+import 'package:flutter_riverpod_practices/pages/slider_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.teal.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SwitchHomePage(),
+      home: const SliderHomePage(),
     );
   }
 }
