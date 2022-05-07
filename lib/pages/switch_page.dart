@@ -126,7 +126,7 @@ class SwitchHomePage extends HookConsumerWidget {
         activeColor: Colors.redAccent,
         value: ref.watch(singleSwitchProvider),
         onChanged: (newValue) {
-          ref.watch(singleSwitchProvider.notifier).onChanged(newValue);
+          ref.watch(singleSwitchProvider.notifier).toggle(newValue);
         });
   }
 

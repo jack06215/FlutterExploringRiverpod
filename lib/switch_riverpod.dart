@@ -10,12 +10,12 @@ final singleSwitchNameProvider =
 final multipleSwitchNameProvider =
     Provider<String>((ref) => "Multiple Switch Widget");
 final footerMessageProvider = Provider<String>(
-    (ref) => "Hope You'll Understand This! \nKeep Learning and Stay Safe");
+    (ref) => "Keep learning \nHappy coding");
 
 class SingleSwitchWidgetNotifier extends StateNotifier<bool> {
   SingleSwitchWidgetNotifier() : super(false);
 
-  void onChanged(bool changeval) {
+  void toggle(bool changeval) {
     state = changeval;
   }
 }
