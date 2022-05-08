@@ -1,50 +1,50 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
 import 'package:flutter_riverpod_practices/showname_riverpod.dart';
-import 'package:get/get.dart';
 
-// https://dev-yakuza.posstree.com/en/flutter/getx/utils/
-// https://github.com/devkishor8007/Exploring-Riverpod/blob/Day-5/lib/page/showName_page.dart
-
-final textFieldProvider = StateNotifierProvider<TextFormStateNotifier, String>(
-    (ref) => TextFormStateNotifier());
-
-class ShowNamePage extends HookConsumerWidget {
-  final _name = TextEditingController();
-
-  ShowNamePage({Key? key}) : super(key: key);
+class MyHomePage extends ConsumerWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = Get.size;
-    final textFieldInput = ref.watch(textFieldProvider);
-    final widgetName = ref.watch(widgetNameProvider);
-    final footerMessage = ref.watch(footerMessageProvider);
-    final appName = ref.watch(appNameProvider);
+    final items = ref.watch(controllerProvider);
 
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-          child: Column(
-            children: [
-              TextField(
-                controller: _name,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-                onSubmitted: (String newValue) {
-                  ref.watch(textFieldProvider.notifier).onChangeValue(newValue);
-                },
-                decoration: InputDecoration(
-                    hintText: "Enter your name",
-                    hintStyle: const TextStyle(color: Colors.grey),
-                    fillColor: Colors.grey.withOpacity(0.3),
-                    filled: true),
-              )
-            ],
-          ),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ref.read(controllerProvider.notifier).add("example");
+        },
+        child: const Icon(Icons.add),
+      ),
+      body: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final str = items[index];
+          
+          return FutureBuilder(
+            future: ref.watch(futureProvider(str.toString()).future),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return ListTile(
+                  title: Text("${snapshot.error}"),
+                );
+              }
+              if (!snapshot.hasData) {
+                return const ListTile(
+                  title: Center(child: CircularProgressIndicator()),
+                );
+              }
+              return ListTile(
+                title: Text("${snapshot.data}"),
+              );
+            },
+          );
+        },
       ),
     );
   }

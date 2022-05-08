@@ -1,14 +1,24 @@
+// Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final appNameProvider = Provider<String>((ref) => "Exploring Riverpod");
-final widgetNameProvider = Provider<String>((ref) => "TextField Widget");
-final footerMessageProvider =
-    Provider<String>((ref) => "Keep learning Flutter\nHappy Coding!");
+final controllerProvider =
+    StateNotifierProvider<Controller, List<Future<String>>>(
+        (ref) => Controller(ref.read));
 
-class TextFormStateNotifier extends StateNotifier<String> {
-  TextFormStateNotifier() : super("Jack Cho");
+final futureProvider =
+    FutureProvider.autoDispose.family<String, String>((ref, str) async {
+  final ret = await Future.delayed(const Duration(seconds: 1), () => str);
+  ref.maintainState = true;
+  return ret;
+});
 
-  void onChangeValue(String newValue) {
-    state = newValue;
+class Controller extends StateNotifier<List<Future<String>>> {
+  Controller(this._read) : super([]);
+
+  final Reader _read;
+
+  void add(String str) {
+    final f = _read(futureProvider(str).future);
+    state = [f, ...state];
   }
 }

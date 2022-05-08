@@ -1,9 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_practices/pages/showname.dart';
 
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
+import 'package:flutter_riverpod_practices/pages/showname.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.teal.withOpacity(0.3),
       ),
       debugShowCheckedModeBanner: false,
-      home: ShowNamePage(),
+      home: const MyHomePage(),
     );
   }
 }
