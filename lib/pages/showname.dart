@@ -3,6 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_riverpod_practices/showname_riverpod.dart';
 import 'package:get/get.dart';
 
+// https://dev-yakuza.posstree.com/en/flutter/getx/utils/
+// https://github.com/devkishor8007/Exploring-Riverpod/blob/Day-5/lib/page/showName_page.dart
+
 final textFieldProvider = StateNotifierProvider<TextFormStateNotifier, String>(
     (ref) => TextFormStateNotifier());
 
