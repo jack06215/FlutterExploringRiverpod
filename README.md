@@ -1,6 +1,8 @@
 # flutter_riverpod_practices
 
 A new Flutter project.
+[](https://github.com/iisprey/riverpod_example/tree/main/lib)
+[](https://itnext.io/flutter-state-management-with-riverpod-ef8d4ef77392)
 
 ## Getting Started
 
