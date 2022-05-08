@@ -7,9 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 // Project imports:
 import 'package:flutter_riverpod_practices/slider_riverpod.dart';
 
-// https://github.com/devkishor8007/Exploring-Riverpod/blob/Day-4/lib/page/sliderPage.dart
-
-final sliderRiverpod =
+final sliderProvider =
     StateNotifierProvider<SliderWidget, double>((ref) => SliderWidget());
 
 class SliderHomePage extends HookConsumerWidget {
@@ -18,14 +16,25 @@ class SliderHomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mq = MediaQuery.of(context).size;
-    final sliderImplement = ref.watch(sliderRiverpod);
-
-    final whatWidgetImpl = ref.watch(whatWidgetProvider);
-    final footerMessageImpl = ref.watch(footerMessageProvider);
-    final appName = ref.watch(appNameProvider);
+    final sliderState = ref.watch(sliderProvider);
+    final whatWidgetState = ref.watch(whatWidgetProvider);
+    final footerMsgState = ref.watch(footerMessageProvider);
+    final appNameState = ref.watch(appNameProvider);
 
     return SafeArea(
         child: Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          appNameState,
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(color: Colors.white),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -36,12 +45,37 @@ class SliderHomePage extends HookConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                whatWidgetImpl,
+                whatWidgetState,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: Theme.of(context).textTheme.headline6!.fontSize,
                 ),
               ),
+              Padding(
+                  padding: EdgeInsets.only(
+                      left: mq.width * 0.043, top: mq.height * 0.03),
+                  child: Text("The value is ${sliderState.toStringAsFixed(2)}",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .fontSize))),
+              Slider(
+                  min: 0,
+                  max: 10,
+                  value: sliderState,
+                  onChanged: (newValue) =>
+                      ref.watch(sliderProvider.notifier).onChanged(newValue)),
+              SizedBox(
+                height: mq.height * 0.03,
+              ),
+              Text(
+                footerMsgState,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: Theme.of(context).textTheme.bodyText1!.fontSize),
+              )
             ],
           ),
         ),
