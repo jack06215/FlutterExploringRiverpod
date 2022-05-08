@@ -1,8 +1,8 @@
 # flutter_riverpod_practices
 
 A new Flutter project.
-[](https://github.com/iisprey/riverpod_example/tree/main/lib)
-[](https://itnext.io/flutter-state-management-with-riverpod-ef8d4ef77392)
+[](https://itnext.io/undo-redo-mechanism-with-riverpod-in-flutter-6fc15ef87b1a)
+[](https://github.com/iisprey/history_mixin_example)
 
 ## Getting Started
 
