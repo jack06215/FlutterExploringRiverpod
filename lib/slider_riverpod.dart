@@ -6,8 +6,8 @@ final whatWidgetProvider = Provider<String>((ref) => "Slider Widget");
 final footerMessageProvider =
     Provider<String>((ref) => "Keep Flutttering\nHappy Coding");
 
-class SliderWidget extends StateNotifier<double> {
-  SliderWidget() : super(0.0);
+class SliderStateNotifier extends StateNotifier<double> {
+  SliderStateNotifier() : super(0.0);
 
   void onChanged(double newValue) {
     state = newValue;

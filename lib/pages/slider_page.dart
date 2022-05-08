@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_riverpod_practices/slider_riverpod.dart';
 
 final sliderProvider =
-    StateNotifierProvider<SliderWidget, double>((ref) => SliderWidget());
+    StateNotifierProvider<SliderStateNotifier, double>((ref) => SliderStateNotifier());
 
 class SliderHomePage extends HookConsumerWidget {
   const SliderHomePage({Key? key}) : super(key: key);
