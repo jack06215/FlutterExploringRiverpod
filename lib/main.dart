@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_practices/pages/counter.dart';
+import 'package:flutter_riverpod_practices/pages/setting_page.dart';
+import 'package:flutter_riverpod_practices/pages/text_size_changer_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const CounterPage(),
+      home: TextSizeChangerScreen(),
     );
   }
 }
