@@ -9,8 +9,6 @@ import 'package:flutter_riverpod_practices/advance_tictactoe/tiles.dart';
 import 'package:flutter_riverpod_practices/pages/basic_counter_page.dart';
 import 'package:flutter_riverpod_practices/pages/basic_riverpod_page.dart';
 
-// https://github.com/devkishor8007/Exploring-Riverpod/blob/Day-2/lib/main.dart
-
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }

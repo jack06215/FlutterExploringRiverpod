@@ -1,5 +1,7 @@
 # flutter_riverpod_practices
 
+https://github.com/devkishor8007/Exploring-Riverpod/blob/Day-2/lib/main.dart
+
 A new Flutter project.
 
 ## Getting Started
