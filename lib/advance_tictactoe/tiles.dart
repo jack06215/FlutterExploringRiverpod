@@ -72,7 +72,7 @@ class TileWidget extends HookConsumerWidget {
       duration: duration,
       upperBound: 100,
     );
-    useValueChanged<PlayerType, Function(PlayerType, PlayerType)>(
+    useValueChanged<PlayerType, Function(PlayerType, void)>(
         tileEntry.value, (_, __) {
       if (tileEntry.value == PlayerType.empty) {
         _controller.reset();
@@ -138,7 +138,7 @@ class FinishDialog extends HookConsumerWidget {
     if (_winner == FinishedState.circle) {
       return "Circle won!";
     }
-    return "Nobody lost!";
+    return "Nobody lose!";
   }
 
   String get title {
