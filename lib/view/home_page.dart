@@ -23,7 +23,7 @@ class HomePageView extends ConsumerWidget {
         ),
         data: (photos) {
           return ListView.builder(
-            itemCount: photos.length,
+            itemCount: 80,
             itemBuilder: (BuildContext context, int index) {
               final photo = photos[index];
 
