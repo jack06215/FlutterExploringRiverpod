@@ -10,20 +10,20 @@ class Waifu with _$Waifu {
       required String file,
       required String sample,
       required String previewImg,
-      required String source}) = _FromKonachan;
+      required String source}) = FromKonachan;
 
   factory Waifu.fromYandere(
       {required String author,
       required String file,
       required String sample,
       required String previewImg,
-      required String source}) = _FromYandere;
+      required String source}) = FromYandere;
 
   factory Waifu.fromGelbooru(
       {required String file,
       required String sample,
       required String previewImg,
-      required String source}) = _FromGelbooru;
+      required String source}) = FromGelbooru;
 
   factory Waifu.fromJson(Map<String, dynamic> json) => _$WaifuFromJson(json);
 }

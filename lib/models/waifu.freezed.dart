@@ -17,11 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 Waifu _$WaifuFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'fromKonachan':
-      return _FromKonachan.fromJson(json);
+      return FromKonachan.fromJson(json);
     case 'fromYandere':
-      return _FromYandere.fromJson(json);
+      return FromYandere.fromJson(json);
     case 'fromGelbooru':
-      return _FromGelbooru.fromJson(json);
+      return FromGelbooru.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'Waifu',
@@ -77,23 +77,23 @@ mixin _$Waifu {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FromKonachan value) fromKonachan,
-    required TResult Function(_FromYandere value) fromYandere,
-    required TResult Function(_FromGelbooru value) fromGelbooru,
+    required TResult Function(FromKonachan value) fromKonachan,
+    required TResult Function(FromYandere value) fromYandere,
+    required TResult Function(FromGelbooru value) fromGelbooru,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,10 +146,10 @@ class _$WaifuCopyWithImpl<$Res> implements $WaifuCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_FromKonachanCopyWith<$Res> implements $WaifuCopyWith<$Res> {
-  factory _$$_FromKonachanCopyWith(
-          _$_FromKonachan value, $Res Function(_$_FromKonachan) then) =
-      __$$_FromKonachanCopyWithImpl<$Res>;
+abstract class _$$FromKonachanCopyWith<$Res> implements $WaifuCopyWith<$Res> {
+  factory _$$FromKonachanCopyWith(
+          _$FromKonachan value, $Res Function(_$FromKonachan) then) =
+      __$$FromKonachanCopyWithImpl<$Res>;
   @override
   $Res call(
       {String author,
@@ -160,14 +160,14 @@ abstract class _$$_FromKonachanCopyWith<$Res> implements $WaifuCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FromKonachanCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
-    implements _$$_FromKonachanCopyWith<$Res> {
-  __$$_FromKonachanCopyWithImpl(
-      _$_FromKonachan _value, $Res Function(_$_FromKonachan) _then)
-      : super(_value, (v) => _then(v as _$_FromKonachan));
+class __$$FromKonachanCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
+    implements _$$FromKonachanCopyWith<$Res> {
+  __$$FromKonachanCopyWithImpl(
+      _$FromKonachan _value, $Res Function(_$FromKonachan) _then)
+      : super(_value, (v) => _then(v as _$FromKonachan));
 
   @override
-  _$_FromKonachan get _value => super._value as _$_FromKonachan;
+  _$FromKonachan get _value => super._value as _$FromKonachan;
 
   @override
   $Res call({
@@ -177,7 +177,7 @@ class __$$_FromKonachanCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
     Object? previewImg = freezed,
     Object? source = freezed,
   }) {
-    return _then(_$_FromKonachan(
+    return _then(_$FromKonachan(
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -204,8 +204,8 @@ class __$$_FromKonachanCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromKonachan implements _FromKonachan {
-  _$_FromKonachan(
+class _$FromKonachan implements FromKonachan {
+  _$FromKonachan(
       {required this.author,
       required this.file,
       required this.sample,
@@ -214,8 +214,8 @@ class _$_FromKonachan implements _FromKonachan {
       final String? $type})
       : $type = $type ?? 'fromKonachan';
 
-  factory _$_FromKonachan.fromJson(Map<String, dynamic> json) =>
-      _$$_FromKonachanFromJson(json);
+  factory _$FromKonachan.fromJson(Map<String, dynamic> json) =>
+      _$$FromKonachanFromJson(json);
 
   @override
   final String author;
@@ -240,7 +240,7 @@ class _$_FromKonachan implements _FromKonachan {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FromKonachan &&
+            other is _$FromKonachan &&
             const DeepCollectionEquality().equals(other.author, author) &&
             const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.sample, sample) &&
@@ -261,8 +261,8 @@ class _$_FromKonachan implements _FromKonachan {
 
   @JsonKey(ignore: true)
   @override
-  _$$_FromKonachanCopyWith<_$_FromKonachan> get copyWith =>
-      __$$_FromKonachanCopyWithImpl<_$_FromKonachan>(this, _$identity);
+  _$$FromKonachanCopyWith<_$FromKonachan> get copyWith =>
+      __$$FromKonachanCopyWithImpl<_$FromKonachan>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -319,9 +319,9 @@ class _$_FromKonachan implements _FromKonachan {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FromKonachan value) fromKonachan,
-    required TResult Function(_FromYandere value) fromYandere,
-    required TResult Function(_FromGelbooru value) fromGelbooru,
+    required TResult Function(FromKonachan value) fromKonachan,
+    required TResult Function(FromYandere value) fromYandere,
+    required TResult Function(FromGelbooru value) fromGelbooru,
   }) {
     return fromKonachan(this);
   }
@@ -329,9 +329,9 @@ class _$_FromKonachan implements _FromKonachan {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
   }) {
     return fromKonachan?.call(this);
   }
@@ -339,9 +339,9 @@ class _$_FromKonachan implements _FromKonachan {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
     required TResult orElse(),
   }) {
     if (fromKonachan != null) {
@@ -352,20 +352,20 @@ class _$_FromKonachan implements _FromKonachan {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FromKonachanToJson(this);
+    return _$$FromKonachanToJson(this);
   }
 }
 
-abstract class _FromKonachan implements Waifu {
-  factory _FromKonachan(
+abstract class FromKonachan implements Waifu {
+  factory FromKonachan(
       {required final String author,
       required final String file,
       required final String sample,
       required final String previewImg,
-      required final String source}) = _$_FromKonachan;
+      required final String source}) = _$FromKonachan;
 
-  factory _FromKonachan.fromJson(Map<String, dynamic> json) =
-      _$_FromKonachan.fromJson;
+  factory FromKonachan.fromJson(Map<String, dynamic> json) =
+      _$FromKonachan.fromJson;
 
   String get author => throw _privateConstructorUsedError;
   @override
@@ -378,15 +378,15 @@ abstract class _FromKonachan implements Waifu {
   String get source => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_FromKonachanCopyWith<_$_FromKonachan> get copyWith =>
+  _$$FromKonachanCopyWith<_$FromKonachan> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FromYandereCopyWith<$Res> implements $WaifuCopyWith<$Res> {
-  factory _$$_FromYandereCopyWith(
-          _$_FromYandere value, $Res Function(_$_FromYandere) then) =
-      __$$_FromYandereCopyWithImpl<$Res>;
+abstract class _$$FromYandereCopyWith<$Res> implements $WaifuCopyWith<$Res> {
+  factory _$$FromYandereCopyWith(
+          _$FromYandere value, $Res Function(_$FromYandere) then) =
+      __$$FromYandereCopyWithImpl<$Res>;
   @override
   $Res call(
       {String author,
@@ -397,14 +397,14 @@ abstract class _$$_FromYandereCopyWith<$Res> implements $WaifuCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FromYandereCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
-    implements _$$_FromYandereCopyWith<$Res> {
-  __$$_FromYandereCopyWithImpl(
-      _$_FromYandere _value, $Res Function(_$_FromYandere) _then)
-      : super(_value, (v) => _then(v as _$_FromYandere));
+class __$$FromYandereCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
+    implements _$$FromYandereCopyWith<$Res> {
+  __$$FromYandereCopyWithImpl(
+      _$FromYandere _value, $Res Function(_$FromYandere) _then)
+      : super(_value, (v) => _then(v as _$FromYandere));
 
   @override
-  _$_FromYandere get _value => super._value as _$_FromYandere;
+  _$FromYandere get _value => super._value as _$FromYandere;
 
   @override
   $Res call({
@@ -414,7 +414,7 @@ class __$$_FromYandereCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
     Object? previewImg = freezed,
     Object? source = freezed,
   }) {
-    return _then(_$_FromYandere(
+    return _then(_$FromYandere(
       author: author == freezed
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -441,8 +441,8 @@ class __$$_FromYandereCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromYandere implements _FromYandere {
-  _$_FromYandere(
+class _$FromYandere implements FromYandere {
+  _$FromYandere(
       {required this.author,
       required this.file,
       required this.sample,
@@ -451,8 +451,8 @@ class _$_FromYandere implements _FromYandere {
       final String? $type})
       : $type = $type ?? 'fromYandere';
 
-  factory _$_FromYandere.fromJson(Map<String, dynamic> json) =>
-      _$$_FromYandereFromJson(json);
+  factory _$FromYandere.fromJson(Map<String, dynamic> json) =>
+      _$$FromYandereFromJson(json);
 
   @override
   final String author;
@@ -477,7 +477,7 @@ class _$_FromYandere implements _FromYandere {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FromYandere &&
+            other is _$FromYandere &&
             const DeepCollectionEquality().equals(other.author, author) &&
             const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.sample, sample) &&
@@ -498,8 +498,8 @@ class _$_FromYandere implements _FromYandere {
 
   @JsonKey(ignore: true)
   @override
-  _$$_FromYandereCopyWith<_$_FromYandere> get copyWith =>
-      __$$_FromYandereCopyWithImpl<_$_FromYandere>(this, _$identity);
+  _$$FromYandereCopyWith<_$FromYandere> get copyWith =>
+      __$$FromYandereCopyWithImpl<_$FromYandere>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -556,9 +556,9 @@ class _$_FromYandere implements _FromYandere {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FromKonachan value) fromKonachan,
-    required TResult Function(_FromYandere value) fromYandere,
-    required TResult Function(_FromGelbooru value) fromGelbooru,
+    required TResult Function(FromKonachan value) fromKonachan,
+    required TResult Function(FromYandere value) fromYandere,
+    required TResult Function(FromGelbooru value) fromGelbooru,
   }) {
     return fromYandere(this);
   }
@@ -566,9 +566,9 @@ class _$_FromYandere implements _FromYandere {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
   }) {
     return fromYandere?.call(this);
   }
@@ -576,9 +576,9 @@ class _$_FromYandere implements _FromYandere {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
     required TResult orElse(),
   }) {
     if (fromYandere != null) {
@@ -589,20 +589,20 @@ class _$_FromYandere implements _FromYandere {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FromYandereToJson(this);
+    return _$$FromYandereToJson(this);
   }
 }
 
-abstract class _FromYandere implements Waifu {
-  factory _FromYandere(
+abstract class FromYandere implements Waifu {
+  factory FromYandere(
       {required final String author,
       required final String file,
       required final String sample,
       required final String previewImg,
-      required final String source}) = _$_FromYandere;
+      required final String source}) = _$FromYandere;
 
-  factory _FromYandere.fromJson(Map<String, dynamic> json) =
-      _$_FromYandere.fromJson;
+  factory FromYandere.fromJson(Map<String, dynamic> json) =
+      _$FromYandere.fromJson;
 
   String get author => throw _privateConstructorUsedError;
   @override
@@ -615,28 +615,28 @@ abstract class _FromYandere implements Waifu {
   String get source => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_FromYandereCopyWith<_$_FromYandere> get copyWith =>
+  _$$FromYandereCopyWith<_$FromYandere> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FromGelbooruCopyWith<$Res> implements $WaifuCopyWith<$Res> {
-  factory _$$_FromGelbooruCopyWith(
-          _$_FromGelbooru value, $Res Function(_$_FromGelbooru) then) =
-      __$$_FromGelbooruCopyWithImpl<$Res>;
+abstract class _$$FromGelbooruCopyWith<$Res> implements $WaifuCopyWith<$Res> {
+  factory _$$FromGelbooruCopyWith(
+          _$FromGelbooru value, $Res Function(_$FromGelbooru) then) =
+      __$$FromGelbooruCopyWithImpl<$Res>;
   @override
   $Res call({String file, String sample, String previewImg, String source});
 }
 
 /// @nodoc
-class __$$_FromGelbooruCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
-    implements _$$_FromGelbooruCopyWith<$Res> {
-  __$$_FromGelbooruCopyWithImpl(
-      _$_FromGelbooru _value, $Res Function(_$_FromGelbooru) _then)
-      : super(_value, (v) => _then(v as _$_FromGelbooru));
+class __$$FromGelbooruCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
+    implements _$$FromGelbooruCopyWith<$Res> {
+  __$$FromGelbooruCopyWithImpl(
+      _$FromGelbooru _value, $Res Function(_$FromGelbooru) _then)
+      : super(_value, (v) => _then(v as _$FromGelbooru));
 
   @override
-  _$_FromGelbooru get _value => super._value as _$_FromGelbooru;
+  _$FromGelbooru get _value => super._value as _$FromGelbooru;
 
   @override
   $Res call({
@@ -645,7 +645,7 @@ class __$$_FromGelbooruCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
     Object? previewImg = freezed,
     Object? source = freezed,
   }) {
-    return _then(_$_FromGelbooru(
+    return _then(_$FromGelbooru(
       file: file == freezed
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -668,8 +668,8 @@ class __$$_FromGelbooruCopyWithImpl<$Res> extends _$WaifuCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromGelbooru implements _FromGelbooru {
-  _$_FromGelbooru(
+class _$FromGelbooru implements FromGelbooru {
+  _$FromGelbooru(
       {required this.file,
       required this.sample,
       required this.previewImg,
@@ -677,8 +677,8 @@ class _$_FromGelbooru implements _FromGelbooru {
       final String? $type})
       : $type = $type ?? 'fromGelbooru';
 
-  factory _$_FromGelbooru.fromJson(Map<String, dynamic> json) =>
-      _$$_FromGelbooruFromJson(json);
+  factory _$FromGelbooru.fromJson(Map<String, dynamic> json) =>
+      _$$FromGelbooruFromJson(json);
 
   @override
   final String file;
@@ -701,7 +701,7 @@ class _$_FromGelbooru implements _FromGelbooru {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FromGelbooru &&
+            other is _$FromGelbooru &&
             const DeepCollectionEquality().equals(other.file, file) &&
             const DeepCollectionEquality().equals(other.sample, sample) &&
             const DeepCollectionEquality()
@@ -720,8 +720,8 @@ class _$_FromGelbooru implements _FromGelbooru {
 
   @JsonKey(ignore: true)
   @override
-  _$$_FromGelbooruCopyWith<_$_FromGelbooru> get copyWith =>
-      __$$_FromGelbooruCopyWithImpl<_$_FromGelbooru>(this, _$identity);
+  _$$FromGelbooruCopyWith<_$FromGelbooru> get copyWith =>
+      __$$FromGelbooruCopyWithImpl<_$FromGelbooru>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -778,9 +778,9 @@ class _$_FromGelbooru implements _FromGelbooru {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FromKonachan value) fromKonachan,
-    required TResult Function(_FromYandere value) fromYandere,
-    required TResult Function(_FromGelbooru value) fromGelbooru,
+    required TResult Function(FromKonachan value) fromKonachan,
+    required TResult Function(FromYandere value) fromYandere,
+    required TResult Function(FromGelbooru value) fromGelbooru,
   }) {
     return fromGelbooru(this);
   }
@@ -788,9 +788,9 @@ class _$_FromGelbooru implements _FromGelbooru {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
   }) {
     return fromGelbooru?.call(this);
   }
@@ -798,9 +798,9 @@ class _$_FromGelbooru implements _FromGelbooru {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FromKonachan value)? fromKonachan,
-    TResult Function(_FromYandere value)? fromYandere,
-    TResult Function(_FromGelbooru value)? fromGelbooru,
+    TResult Function(FromKonachan value)? fromKonachan,
+    TResult Function(FromYandere value)? fromYandere,
+    TResult Function(FromGelbooru value)? fromGelbooru,
     required TResult orElse(),
   }) {
     if (fromGelbooru != null) {
@@ -811,19 +811,19 @@ class _$_FromGelbooru implements _FromGelbooru {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FromGelbooruToJson(this);
+    return _$$FromGelbooruToJson(this);
   }
 }
 
-abstract class _FromGelbooru implements Waifu {
-  factory _FromGelbooru(
+abstract class FromGelbooru implements Waifu {
+  factory FromGelbooru(
       {required final String file,
       required final String sample,
       required final String previewImg,
-      required final String source}) = _$_FromGelbooru;
+      required final String source}) = _$FromGelbooru;
 
-  factory _FromGelbooru.fromJson(Map<String, dynamic> json) =
-      _$_FromGelbooru.fromJson;
+  factory FromGelbooru.fromJson(Map<String, dynamic> json) =
+      _$FromGelbooru.fromJson;
 
   @override
   String get file => throw _privateConstructorUsedError;
@@ -835,6 +835,6 @@ abstract class _FromGelbooru implements Waifu {
   String get source => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_FromGelbooruCopyWith<_$_FromGelbooru> get copyWith =>
+  _$$FromGelbooruCopyWith<_$FromGelbooru> get copyWith =>
       throw _privateConstructorUsedError;
 }

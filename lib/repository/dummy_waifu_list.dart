@@ -14,7 +14,7 @@ class DummyWaifuList {
         source: "https://www.pixiv.net/en/artworks/91065294"),
   ];
 
-  List<Waifu> getWaifu() {
+  List<Waifu> getWaifus() {
     return _dummyWaifus;
   }
 }

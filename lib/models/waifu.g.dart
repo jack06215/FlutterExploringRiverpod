@@ -6,8 +6,8 @@ part of 'waifu.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FromKonachan _$$_FromKonachanFromJson(Map<String, dynamic> json) =>
-    _$_FromKonachan(
+_$FromKonachan _$$FromKonachanFromJson(Map<String, dynamic> json) =>
+    _$FromKonachan(
       author: json['author'] as String,
       file: json['file'] as String,
       sample: json['sample'] as String,
@@ -16,7 +16,7 @@ _$_FromKonachan _$$_FromKonachanFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_FromKonachanToJson(_$_FromKonachan instance) =>
+Map<String, dynamic> _$$FromKonachanToJson(_$FromKonachan instance) =>
     <String, dynamic>{
       'author': instance.author,
       'file': instance.file,
@@ -26,8 +26,8 @@ Map<String, dynamic> _$$_FromKonachanToJson(_$_FromKonachan instance) =>
       'runtimeType': instance.$type,
     };
 
-_$_FromYandere _$$_FromYandereFromJson(Map<String, dynamic> json) =>
-    _$_FromYandere(
+_$FromYandere _$$FromYandereFromJson(Map<String, dynamic> json) =>
+    _$FromYandere(
       author: json['author'] as String,
       file: json['file'] as String,
       sample: json['sample'] as String,
@@ -36,7 +36,7 @@ _$_FromYandere _$$_FromYandereFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_FromYandereToJson(_$_FromYandere instance) =>
+Map<String, dynamic> _$$FromYandereToJson(_$FromYandere instance) =>
     <String, dynamic>{
       'author': instance.author,
       'file': instance.file,
@@ -46,8 +46,8 @@ Map<String, dynamic> _$$_FromYandereToJson(_$_FromYandere instance) =>
       'runtimeType': instance.$type,
     };
 
-_$_FromGelbooru _$$_FromGelbooruFromJson(Map<String, dynamic> json) =>
-    _$_FromGelbooru(
+_$FromGelbooru _$$FromGelbooruFromJson(Map<String, dynamic> json) =>
+    _$FromGelbooru(
       file: json['file'] as String,
       sample: json['sample'] as String,
       previewImg: json['previewImg'] as String,
@@ -55,7 +55,7 @@ _$_FromGelbooru _$$_FromGelbooruFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_FromGelbooruToJson(_$_FromGelbooru instance) =>
+Map<String, dynamic> _$$FromGelbooruToJson(_$FromGelbooru instance) =>
     <String, dynamic>{
       'file': instance.file,
       'sample': instance.sample,
